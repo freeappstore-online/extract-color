@@ -1,6 +1,6 @@
 # extract-color
 
-A free app on FreeAppStore.
+Drop, paste, or select an image to extract its dominant color palette — showing HEX + RGB values with copy-on-click.
 
 - Subdomain: `extract-color.freeappstore.online`
 - Dev: `pnpm install && pnpm dev`
@@ -8,7 +8,7 @@ A free app on FreeAppStore.
 - Deploy: `git push origin main` (auto-deploys to R2 via GitHub Actions)
 
 Free, MIT-licensed, no tracking. For platform conventions, read
-https://freeappstore.online/skills.md
+<https://raw.githubusercontent.com/freeappstore-online/freeappstore/main/SKILLS.md>
 before writing or changing anything.
 
 ## SDK

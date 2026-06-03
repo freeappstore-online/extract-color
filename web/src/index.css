@@ -204,3 +204,10 @@ a:focus-visible {
 }
 
 } /* end @layer base */
+
+/* Compact layout for small landscape viewports (phones in landscape) */
+@media (orientation: landscape) and (max-height: 500px) {
+  .ls-hide { display: none !important; }
+  .ls-compact { padding-top: 0.25rem !important; padding-bottom: 0.25rem !important; gap: 0.25rem !important; }
+  .ls-dropzone { min-height: 80px !important; }
+}

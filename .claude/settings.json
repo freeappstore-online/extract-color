@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx @freeappstore/cli@latest check)",
+      "Bash(npx @freeappstore/cli@latest screencheck)",
+      "Bash(pnpm add *)",
+      "Bash(npx playwright *)",
+      "Bash(curl -s \"https://raw.githubusercontent.com/TommyHoang2911/extract-color/refs/heads/claude/extract-color-image-sQeGJ/web/public/manifest.json\")",
+      "Bash(curl -s \"https://raw.githubusercontent.com/freeappstore-online/freeappstore/main/SKILLS.md\")",
+      "Bash(find ~/.npm/_npx -path \"*compliance*\" -name \"*.js\" 2>/dev/null | head -5 && find /tmp -path \"*compliance*\" -name \"*.js\" 2>/dev/null | head -5)",
+      "Read(//home/tommy/.npm/_npx/**)",
+      "Read(//tmp/**)"
+    ]
+  }
+}
