@@ -1,40 +1,45 @@
-# template-standalone
+# extract-color
 
-The standalone-app template used by [`fas init`](https://github.com/freeappstore-online/platform/tree/main/packages/cli) to scaffold new free apps for [FreeAppStore](https://freeappstore.online).
+Drop, paste, or select an image to extract its dominant color palette — with HEX and RGB values you can copy on click.
 
-You almost certainly want to use the CLI, not clone this directly:
+Live at **[extract-color.freeappstore.online](https://extract-color.freeappstore.online)**
+
+---
+
+## Features
+
+- **Three ways to load an image** — drag-and-drop, click to browse, or paste from clipboard (`⌘V` / `Ctrl+V`)
+- **Adjustable palette size** — pick 3–10 colors with a single tap
+- **Copy on click** — click any HEX or RGB value to copy it to the clipboard
+- **Fully client-side** — no uploads, no server, no tracking
+- **PWA** — installable, works offline after first load
+- **Dark mode** — follows system preference
+
+## Tech
+
+- Vite + React 19 + TypeScript
+- [colorthief](https://github.com/lokesh/color-thief) for median-cut palette extraction
+- Tailwind CSS v4 (utility classes only, no config file)
+- `@freeappstore/sdk` — Shell, BuildInfo
+- 75 KB gzipped
+
+## Dev
 
 ```bash
-npm i -g @freeappstore/cli
-fas init my-app
+pnpm install
+pnpm dev        # http://localhost:5173
+pnpm build      # production build → web/dist/
 ```
 
-The CLI clones this template, replaces every `freeappstore` placeholder with your app id, runs `git init`, and makes the first commit — the result is a runnable app you can `pnpm dev` immediately.
-
-## What's in here
-
-- `web/` — Vite + React + TypeScript app, ESM-only, no Tailwind config needed (utility classes via inline styles + the `Shell` component).
-- `web/src/components/Shell.tsx` — sidebar layout with brand fonts (Manrope + Fraunces), CSS variables (`--paper`, `--ink`, `--accent`), and dark-mode support out of the box.
-- `web/src/main.tsx` — React entry point.
-- `web/index.html` — links Manrope + Fraunces, sets PWA meta tags, references the manifest.
-- `web/public/manifest.json` — PWA manifest with `name`, `display`, `start_url`.
-- `package.json` — pnpm workspace, `dev` / `build` / `typecheck` / `test` scripts.
-- `.github/workflows/compliance.yml` — runs the same checks as `fas check` on every PR. Source of truth lives in the [`@freeappstore/compliance`](https://www.npmjs.com/package/@freeappstore/compliance) package.
-
-## Cloning manually (not recommended)
-
-If you really want to scaffold by hand:
+## Compliance
 
 ```bash
-git clone https://github.com/freeappstore-online/template-standalone my-app
-cd my-app
-# Replace freeappstore → my-app in package.json, web/index.html, web/src/main.tsx, README, etc.
-rm -rf .git && git init
-pnpm install && pnpm dev
+npx @freeappstore/cli check          # static checks
+npx @freeappstore/cli screencheck    # browser layout across 12 viewports
 ```
 
-Then run `fas publish` to provision repo + hosting + DNS, or open the [submission form](https://github.com/freeappstore-online/submissions/issues/new) for maintainer review.
+Both must pass before merging to `main`. Pushing to `main` auto-deploys to Cloudflare R2 via GitHub Actions.
 
 ## License
 
-MIT.
+MIT — free to use, modify, and deploy.
