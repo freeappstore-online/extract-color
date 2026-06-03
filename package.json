@@ -1,0 +1,15 @@
+{
+  "name": "extract-color",
+  "private": true,
+  "packageManager": "pnpm@10.30.3",
+  "engines": { "node": ">=22" },
+  "pnpm": { "onlyBuiltDependencies": ["esbuild"] },
+  "repository": { "type": "git", "url": "git+https://github.com/freeappstore-online/extract-color.git" },
+  "scripts": {
+    "dev": "pnpm --filter @extract-color/web dev",
+    "build": "pnpm --filter @extract-color/web build",
+    "preview": "pnpm --filter @extract-color/web preview",
+    "typecheck": "pnpm --filter @extract-color/web exec tsc -b",
+    "test": "pnpm --filter @extract-color/web exec tsc -b"
+  }
+}
